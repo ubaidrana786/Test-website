@@ -89,7 +89,7 @@ export default function Update() {
             onChange={(e) => oninputchange(e)}
           />
         </FormControl>
-        <Button variant="contained" style={{backgroundColor:"#57b846",color:"white"}} onClick={update}>
+        <Button variant="contained" style={{backgroundColor:"#343a40",color:"white"}} onClick={update}>
           Update User
         </Button>
       </FormGroup>

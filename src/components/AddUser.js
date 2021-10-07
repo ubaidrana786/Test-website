@@ -94,7 +94,7 @@ export const AddUser = () => {
         <Button
           onClick={handleSubmit}
           variant="contained"
-          style={{ backgroundColor: "#57b846", color: "white" }}
+          style={{ backgroundColor: "#343a40", color: "white" }}
         >
           Add User
         </Button>

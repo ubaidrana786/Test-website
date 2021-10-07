@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import '../index.css';
+import React, { useState } from "react";
+import "../index.css";
 import {
   Button,
   FormControl,
@@ -21,58 +21,41 @@ const usestyle = makeStyles({
   },
 });
 export default function Signup() {
-  const [email, setemail] = useState("")
-  const [passwrod, setpasswrod] = useState("")
-  
-  
-  const chahgehandle = (e) => {
+  const [email, setemail] = useState("");
+  const [passwrod, setpasswrod] = useState("");
 
-  };
-  
+  const chahgehandle = (e) => {};
+
   const classes = usestyle();
- 
+
   const submit = async (e) => {
     e.preventDefault();
-  
-   
-      
-    
-  }
+  };
   return (
-   
-      <>
-        <FormGroup className={classes.formwidth}>
-        
+    <>
+      <FormGroup className={classes.formwidth}>
         <FormControl>
           <InputLabel>Email</InputLabel>
-          <Input
-            name="email"
-            onChange={(e) => setemail(e.target.value)}
-          />
+          <Input name="email" onChange={(e) => setemail(e.target.value)} />
         </FormControl>
-      
+
         <FormControl>
           <InputLabel>password</InputLabel>
           <Input
-           type="password"
+            type="password"
             name="password"
             onChange={(e) => setemail(e.target.value)}
           />
         </FormControl>
-        <Button variant="contained" style={{backgroundColor:"#57b846",color:"white"}} onClick={submit}>
-        Create Acccount ?
+        <Button
+          variant="contained"
+          style={{ backgroundColor: "#343a40", color: "white" }}
+          onClick={submit}
+        >
+          Create Acccount ?
         </Button>
-        <Link
-      
-      to={"/login"}
-    >
-
-     Log In
-    </Link>
+        <Link to={"/"}>Log In</Link>
       </FormGroup>
-      
-   </>
-   
-    
-  )
+    </>
+  );
 }

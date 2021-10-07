@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // import React, { useState } from "react";
 // // import fire from "./FireBaseAuth";
 // // import withFirebaseAuth from 'react-with-firebase-auth'
@@ -14,20 +13,18 @@
 //   InputLabel,
 //   makeStyles,
 // } from "@material-ui/core";
-=======
-import React, { useState } from "react";
 
+// import React, { useState } from "react";
 
-import "../index.css";
-import {
-  Button,
-  FormControl,
-  FormGroup,
-  Input,
-  InputLabel,
-  makeStyles,
-} from "@material-ui/core";
->>>>>>> 633a1bdc75e5453306896d0d77a8ea0f8a609173
+// import "../index.css";
+// import {
+//   Button,
+//   FormControl,
+//   FormGroup,
+//   Input,
+//   InputLabel,
+//   makeStyles,
+// } from "@material-ui/core";
 
 // import { Link } from "react-router-dom";
 // import { ErrorModel } from "./ErrorModel";
@@ -47,7 +44,6 @@ import {
 //   const [passerror, setpasserror] = useState();
 //   const classes = usestyle();
 
-<<<<<<< HEAD
 //   const submit = async (e) => {
 //     e.preventDefault();
 //     // if (email.trim().length === 0 || password.trim().length === 0) {
@@ -109,7 +105,7 @@ import {
 //             onChange={passwordchahgehandle}
 //           />
 //         </FormControl>
-//         <Button 
+//         <Button
 //           variant="contained"
 //           style={{ backgroundColor: "#57b846", color: "white" }}
 //           onClick={submit}
@@ -122,32 +118,41 @@ import {
 //   );
 // }
 
-import React, { useState } from 'react'
-import { useHistory } from "react-router"
+import React, { useState } from "react";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
+import {
+  Button,
+  FormControl,
+  FormGroup,
+  Input,
+  InputLabel,
+  makeStyles,
+} from "@material-ui/core";
 export const Login = (props) => {
-  const [email, setemail] = useState("")
-  const [password, setpassword] = useState("")
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
   let history = useHistory();
-  const login = async (e)=>{
-    e.preventDefault()
-    console.warn(email,password)
-    
-     let item = {email,password}
-    let result = await fetch("https://reqres.in/api/login",{
+  const login = async (e) => {
+    e.preventDefault();
+    console.warn(email, password);
+
+    let item = { email, password };
+    let result = await fetch("https://reqres.in/api/login", {
       method: "post",
       headers: {
         "content-type": "application/json",
-        "Accept":"application/json"
+        Accept: "application/json",
       },
       body: JSON.stringify(item),
     });
-    result = await result.json()
-    console.log(result)
-    localStorage.setItem("login user", JSON.stringify(result) )
-    props.onLogin(item);
+    result = await result.json();
+    console.log(result);
+    localStorage.setItem("login user", JSON.stringify(result));
+
     // history.push("/all");
-  }
-=======
+  };
+
   const submit = async (e) => {
     e.preventDefault();
     // if (email.trim().length === 0 || password.trim().length === 0) {
@@ -158,7 +163,7 @@ export const Login = (props) => {
     // } else {
     //   seterror("");
     // }
- 
+
     console.log(email, password);
     setemail("");
     setpassword("");
@@ -174,23 +179,43 @@ export const Login = (props) => {
   // const errorHandle = () => {
   //   seterror(null);
   // };
->>>>>>> 633a1bdc75e5453306896d0d77a8ea0f8a609173
+  const usestyle = makeStyles({
+    formwidth: {
+      width: "30%",
+      margin: "15% 0 0 35%",
+      "& > *": {
+        marginTop: "30px",
+      },
+    },
+  });
+  const classes = usestyle();
   return (
-    <div className="container mt-5">
-       <form>
-          <div class="mb-3">
-            <label for="exampleInputEmail1"  class="form-label">Email address</label>
-            <input type="email" class="form-control" name="user" id="exampleInputEmail1" onChange={(e) => setemail(  e.target.value )} />
+    <>
+      
+      <FormGroup className={classes.formwidth}>
+        <FormControl>
+          <InputLabel>Email</InputLabel>
+          <Input name="user" onChange={(e) => setemail(e.target.value)} />
+          {/* {error && <p> {error.message}</p>} */}
+        </FormControl>
 
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" name="password" id="exampleInputPassword1" onChange={(e) => setpassword(  e.target.value )}  />
-          </div>
-
-          <button type="submit" onClick={login} class="btn btn-primary">Submit</button>
-        </form>
-    </div>
-  )
-}
-
+        <FormControl>
+          <InputLabel>password</InputLabel>
+          <Input
+            type="password"
+            name="password"
+            onChange={(e) => setpassword(e.target.value)}
+          />
+        </FormControl>
+        <Button
+          variant="contained"
+          style={{ backgroundColor: "#343a40", color: "white" }}
+          onClick={login} 
+        >
+          Log In
+        </Button>
+        <Link to={"/signup"}>Create Account</Link>
+      </FormGroup>
+    </>
+  );
+};

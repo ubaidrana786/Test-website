@@ -114,7 +114,6 @@ export default function AllUser() {
     },
     thead: {
       "& > *": {
-        background: "#57b846",
         color: "white",
         fontSize: "20px",
       },
@@ -124,7 +123,7 @@ export default function AllUser() {
   return (
     <div>
       <Table className={classes.table}>
-        <TableHead>
+        <TableHead className="bg-dark">
           <TableRow className={classes.thead}>
             <TableCell>Id</TableCell>
             <TableCell>Name</TableCell>
