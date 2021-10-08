@@ -35,6 +35,7 @@ export const AddUser = () => {
 
   let history = useHistory();
   const handleSubmit = (event) => {
+    
     event.preventDefault();
 
     fetch("http://localhost:3000/posts", {

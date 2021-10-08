@@ -10,7 +10,7 @@ export const ErrorModel = (props) => {
         <p>{props.message}</p>
       </div>
       <footer className={classes.actions}>
-        <button className="btn btn-primary">Okay</button>
+        <button className="btn btn-primary">{props.onConfirm}Okay</button>
       </footer>
     </div>
   );

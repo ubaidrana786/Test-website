@@ -1,6 +1,14 @@
 import React from 'react'
 import {  Link, } from "react-router-dom";
+import { Redirect, useHistory } from "react-router";
 export const NavbarMenu = () => {
+  let history = useHistory();
+ function logout (e){
+   e.preventDefault()
+    localStorage.clear();
+    history.push("./login");
+  
+  }
     return (
         <div>
            <nav class="navbar navbar-expand-lg bg-dark" >
@@ -13,7 +21,7 @@ export const NavbarMenu = () => {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                  <Link  class="nav-link active text-white" aria-current="page" to="/home">Home</Link>
+                  <Link  class="nav-link active text-white" aria-current="page" to="/">Home</Link>
                 </li>
               
                 <li class="nav-item">
@@ -22,11 +30,15 @@ export const NavbarMenu = () => {
                 <li class="nav-item">
                   <Link class="nav-link active text-white" aria-current="page" to="/add">Add User</Link>
                 </li>
+                <li class="nav-item">
+                  <Link class="nav-link active text-white" aria-current="page" to="/login">Log in</Link>
+                </li>
+               
               
               </ul>
               <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-outline-danger" type="submit">Search</button>
+                <button class="btn bg-white" onClick={logout} >Log Out</button>
               </form>
             </div>
           </div>

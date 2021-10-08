@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../index.css";
-
+import image3 from "../Assest/Image/form.png";
 export default function Contactform() {
   const [user, setuser] = useState({
     name: "",
@@ -20,9 +20,9 @@ export default function Contactform() {
       subject.trim().length === 0 ||
       message.trim().length === 0
     ) {
-      return;
+      alert("please fill data")
     }
-    if (window.confirm("You are about to delete a post, please confirm")) {
+    else if (window.confirm("Submmited data, please confirm")) {
       const res = await fetch(
         "https://test-website-2e03b-default-rtdb.firebaseio.com/HomepageContactfrom.json",
         {
@@ -53,7 +53,7 @@ export default function Contactform() {
     <div className="container">
       <div class="container-contact1 row ">
         <div class="contact1-pic js-tilt col-6" data-tilt>
-          <img src="images/img-01.png" alt="IMG" />
+          <img src={image3} alt="IMG" />
         </div>
 
         <form class="contact1-form validate-form col-6" method="post">
@@ -113,7 +113,7 @@ export default function Contactform() {
           </div>
 
           <div class="container-contact1-form-btn">
-            <button class="contact1-form-btn" onClick={submit}>
+            <button class="contact1-form-btn bg-dark" onClick={submit}>
               <span>
                 Send Email
                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
